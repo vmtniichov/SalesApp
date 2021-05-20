@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{262331DC-8A06-414D-9B33-290FD230867B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SalesApp</RootNamespace>
+    <AssemblyName>SalesApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="BussinessLayer">
+      <HintPath>..\BussinessLayer\bin\Debug\BussinessLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DTO">
+      <HintPath>..\DTO\bin\Debug\DTO.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BanHangDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BanHangDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BanHangDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BanHangDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BaseClass.cs" />
+    <Compile Include="DataAccess\Database.cs" />
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainForm.designer.cs">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserSetting.Designer.cs">
+      <DependentUpon>frmUserSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Customer\ucCustomerList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master\Customer\ucCustomerList.Designer.cs">
+      <DependentUpon>ucCustomerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Customer\wdCustomerUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\Customer\wdCustomerUpdate.Designer.cs">
+      <DependentUpon>wdCustomerUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Deliver\ucDeliverList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master\Deliver\ucDeliverList.Designer.cs">
+      <DependentUpon>ucDeliverList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Deliver\wdDeliverUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\Deliver\wdDeliverUpdate.Designer.cs">
+      <DependentUpon>wdDeliverUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Employee\ucEmployeeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master\Employee\ucEmployeeList.Designer.cs">
+      <DependentUpon>ucEmployeeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Employee\wdEmployeeUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\Employee\wdEmployeeUpdate.Designer.cs">
+      <DependentUpon>wdEmployeeUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Product\ucProductList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Master\Product\ucProductList.Designer.cs">
+      <DependentUpon>ucProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Product\wdProductUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\Product\wdProductUpdate.Designer.cs">
+      <DependentUpon>wdProductUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SOHD.cs" />
+    <Compile Include="Model\SUMMARY.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\SalesDetail\SaleDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Report\SalesSummary\SalesSummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="frmSaleReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaleReport.Designer.cs">
+      <DependentUpon>frmSaleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\PriceSetting\FormPriceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\PriceSetting\FormPriceDetail.Designer.cs">
+      <DependentUpon>FormPriceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\PriceSetting\ucPriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction\PriceSetting\ucPriceList.Designer.cs">
+      <DependentUpon>ucPriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Sales\ConfirmPrintBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\Sales\ConfirmPrintBillForm.Designer.cs">
+      <DependentUpon>ConfirmPrintBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Sales\FormDeleteTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\Sales\FormDeleteTable.Designer.cs">
+      <DependentUpon>FormDeleteTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Sales\ucSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transaction\Sales\ucSales.Designer.cs">
+      <DependentUpon>ucSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMenu.Designer.cs">
+      <DependentUpon>ucMenu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainForm.resx">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserSetting.resx">
+      <DependentUpon>frmUserSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Customer\ucCustomerList.resx">
+      <DependentUpon>ucCustomerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Customer\wdCustomerUpdate.resx">
+      <DependentUpon>wdCustomerUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Deliver\ucDeliverList.resx">
+      <DependentUpon>ucDeliverList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Deliver\wdDeliverUpdate.resx">
+      <DependentUpon>wdDeliverUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Employee\ucEmployeeList.resx">
+      <DependentUpon>ucEmployeeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Employee\wdEmployeeUpdate.resx">
+      <DependentUpon>wdEmployeeUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Product\ucProductList.resx">
+      <DependentUpon>ucProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\Product\wdProductUpdate.resx">
+      <DependentUpon>wdProductUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report\SalesDetail\SaleDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SaleDetail.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SalesSummary\SalesSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalesSummary.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaleReport.resx">
+      <DependentUpon>frmSaleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\PriceSetting\FormPriceDetail.resx">
+      <DependentUpon>FormPriceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\PriceSetting\ucPriceList.resx">
+      <DependentUpon>ucPriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\Sales\ConfirmPrintBillForm.resx">
+      <DependentUpon>ConfirmPrintBillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\Sales\FormDeleteTable.resx">
+      <DependentUpon>FormDeleteTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\Sales\ucSales.resx">
+      <DependentUpon>ucSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMenu.resx">
+      <DependentUpon>ucMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="BanHangDataSet.xsc">
+      <DependentUpon>BanHangDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BanHangDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BanHangDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BanHangDataSet.xss">
+      <DependentUpon>BanHangDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BanHangDataSet1.xsc">
+      <DependentUpon>BanHangDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BanHangDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BanHangDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BanHangDataSet1.xss">
+      <DependentUpon>BanHangDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\iconfinder_Administrator 2_22176.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_call-support-relation-customer-service_3709753.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_box_truck_4920724.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_wuhan-coronavirus-virus-outbreak-15_5730688.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_female-customer-employee-client-assistance_3709745.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_price_tag_usd_172529.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_cart-6_3338941.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_m-21_4230540.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_pie-chart-1_3339000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_lock_locked_log_login_padlock_password_private_protection_register_registration_registry_safe_safety_secret_secure_security_392499.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20771495511586787249-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10232151051579060770-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

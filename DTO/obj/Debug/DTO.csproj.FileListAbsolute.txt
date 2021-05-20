@@ -1,0 +1,5 @@
+D:\GiangDay\C# CSDL\BaiTap\Bai tap 2021\Source\WinForm\SalesApp\DTO\bin\Debug\DTO.dll
+D:\GiangDay\C# CSDL\BaiTap\Bai tap 2021\Source\WinForm\SalesApp\DTO\bin\Debug\DTO.pdb
+D:\GiangDay\C# CSDL\BaiTap\Bai tap 2021\Source\WinForm\SalesApp\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\GiangDay\C# CSDL\BaiTap\Bai tap 2021\Source\WinForm\SalesApp\DTO\obj\Debug\DTO.dll
+D:\GiangDay\C# CSDL\BaiTap\Bai tap 2021\Source\WinForm\SalesApp\DTO\obj\Debug\DTO.pdb
