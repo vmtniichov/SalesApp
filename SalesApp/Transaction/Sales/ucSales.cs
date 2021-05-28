@@ -26,7 +26,7 @@ namespace SalesApp.Transaction.Sales
             BaseClass.LoadUC((Panel)Parent, new ucMenu());
         }
 
-        
+
         #region Sự kiện của các nút bấm
         //Dùng để tạo bàn mới trong database
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -66,7 +66,56 @@ namespace SalesApp.Transaction.Sales
             }
         }
 
-
+        //Xóa Sản Phẩm
+        private void dgProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgProduct.Columns["deleteproduct"].Index)
+            {
+                dtb = new Database();
+                if (dgProduct.CurrentRow.Cells["deletequantity"].Value == null)
+                {
+                    string query = @"delete sodt from sodt where id = (select max(cast(id as int)) from sodt where soid =@soid  and productid = @productid)";
+                    bool result = dtb.SetValue(query, CommandType.Text, ref err, new SqlParameter("@soid", txtSOID.Text), new SqlParameter("@productid", dgProduct.CurrentRow.Cells["productid"].Value.ToString()));
+                    if (result)
+                    {
+                        MessageBox.Show("Delete product successfully!");
+                        txtAmount.Text = LoadSOHD_Amount(txtSOID.Text).ToString();
+                        Display_SODT_Detail(txtSOID.Text);
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        int quantity = Convert.ToInt32(dgProduct.CurrentRow.Cells["deletequantity"].Value);
+                        int real_quantity = Convert.ToInt32(dgProduct.CurrentRow.Cells["quantity"].Value);
+                        if (quantity > real_quantity)
+                        {
+                            MessageBox.Show("Please enter quantity again!");
+                        }
+                        else
+                        {
+                            bool result = false;
+                            for (int i = 0; i < quantity; i++)
+                            {
+                                string query = @"delete sodt from sodt where id = (select max(cast(id as int)) from sodt where soid =@soid  and productid = @productid)";
+                                result = dtb.SetValue(query, CommandType.Text, ref err, new SqlParameter("@soid", txtSOID.Text), new SqlParameter("@productid", dgProduct.CurrentRow.Cells["productid"].Value.ToString()));
+                            }
+                            if (result)
+                            {
+                                MessageBox.Show("Delete product successfully!");
+                                txtAmount.Text = LoadSOHD_Amount(txtSOID.Text).ToString();
+                                Display_SODT_Detail(txtSOID.Text);
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Please enter a number to delete and it must less than quantity!");
+                    }
+                }
+            }
+        }
 
         //Cập nhật amount và discount amount
         private void btnUpdSOHD_Click(object sender, EventArgs e)
@@ -103,9 +152,10 @@ namespace SalesApp.Transaction.Sales
             frm.txtDiscountAmount.Text = lblDiscountAmount.Text == "" ? "0" : lblDiscountAmount.Text;
             frm.txtSOID.Text = txtSOID.Text;
             frm.lblTableID.Text = txtTableID.Text;
-            frm.txtPercent.Text = txtPercent.Text == "" ? "0": txtPercent.Text;
-            frm.txtNetAmount.Text = txtNetA.Text == "" ? txtAmount.Text : Convert.ToDouble(txtNetA.Text).ToString();
+            frm.txtPercent.Text = txtPercent.Text == "" ? "0" : txtPercent.Text;
+            frm.txtNetAmount.Text = txtNetA.Text == "" ? txtAmount.Text : txtNetA.Text.TrimStart('0');
             frm.ShowDialog();
+
 
             btnBack.Visible = false;
             btnPrintBill.Visible = false;
@@ -128,7 +178,7 @@ namespace SalesApp.Transaction.Sales
             }
             PanelItemList.Controls.Clear();
             LoadTableList();
-            
+
         }
 
         //Button danh sách bàn khi click hiển thị menu
@@ -139,6 +189,8 @@ namespace SalesApp.Transaction.Sales
 
             Button btn = (Button)sender;
             txtTableID.Text = btn.Name.Split('_')[0];
+
+            txtQuantity.Text = "";
 
             PanelItemList.Visible = true;
             btnBillDel.Visible = true;
@@ -191,15 +243,15 @@ namespace SalesApp.Transaction.Sales
             else if (btn.Name.Split('_')[1] == "1")
             {
 
-                dgProductMask.Visible =false;
+                dgProductMask.Visible = false;
                 //TODO Load SODT và thông tin hóa đơn lên datagidview
                 Display_SODT_Detail(currentSOID);
-                txtAmount.Text = LoadSOHD_Amount(currentSOID);
+                txtAmount.Text = LoadSOHD_Amount(currentSOID).ToString();
                 SqlDataReader reader = GetAmountInfo(currentSOID);
                 while (reader.Read())
                 {
                     txtPercent.Text = reader["discountpercent"].ToString();
-                    lblDiscountAmount.Text = reader["discountamount"].ToString();
+                    lblDiscountAmount.Text = reader["discountamount"].ToString().Split('.')[0];
                 }
                 txtSOID.Text = btn.Name.Split('_')[2];
             }
@@ -266,7 +318,7 @@ namespace SalesApp.Transaction.Sales
             catch { }
             finally
             {
-                txtAmount.Text = LoadSOHD_Amount(txtSOID.Text);
+                txtAmount.Text = LoadSOHD_Amount(txtSOID.Text).ToString();
             }
 
 
@@ -279,7 +331,7 @@ namespace SalesApp.Transaction.Sales
         private void btnBack_Click(object sender, EventArgs e)
         {
             
-            
+
             btnBack.Visible = false;
             btnPrintBill.Visible = false;
             btnBillDel.Visible = false;
@@ -424,12 +476,8 @@ namespace SalesApp.Transaction.Sales
             dtb = new Database();
             productlist = new DataTable();
             SqlDataReader reader = dtb.MyExecuteReader(query, CommandType.Text, ref err, new SqlParameter("@soid", soid));
-            if (reader.HasRows)
-            {
-                productlist.Load(reader);
-                dgProduct.DataSource = productlist;
-            }
-
+            productlist.Load(reader);
+            dgProduct.DataSource = productlist;
         }
 
         //Hiển thị menu dưới dạng button sau khi nhấp vào 1 bàn
@@ -547,14 +595,18 @@ namespace SalesApp.Transaction.Sales
         }
 
         //Lấy amount
-        private string LoadSOHD_Amount(string soid)
+        private double LoadSOHD_Amount(string soid)
         {
-            string amount = string.Empty;
+            double amount = 0;
 
             dtb = new Database();
             string query = @"select sum(price) as amount_total from sodt where soid = @soid";
             object result = dtb.GetValue(query, CommandType.Text, ref err, new SqlParameter("@soid", soid));
-            amount = result.ToString();
+            try
+            {
+                amount = Convert.ToDouble(result.ToString());
+            }
+            catch { }
 
             return amount;
         }
@@ -563,12 +615,15 @@ namespace SalesApp.Transaction.Sales
 
         #endregion
 
+
+        //Thay đổi giá của sản phẩm khi chọn Nhóm giá
         private void cboPG_SelectedValueChanged(object sender, EventArgs e)
         {
             PanelItemList.Controls.Clear();
             LoadProList(cboPG.SelectedValue.ToString());
         }
 
+        //Xóa Bàn
         private void btnDeleteTable_Click(object sender, EventArgs e)
         {
             FormDeleteTable frm = new FormDeleteTable();
@@ -578,8 +633,7 @@ namespace SalesApp.Transaction.Sales
             LoadTableList();
         }
 
-        
-
+        //Chỉ Nhận số khi nhập vào textbox
         private void txtPercent_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -588,6 +642,7 @@ namespace SalesApp.Transaction.Sales
             }
         }
 
+        //Cập nhật giá trị các textbox liên quan
         private void txtPercent_TextChanged(object sender, EventArgs e)
         {
             try
@@ -615,64 +670,7 @@ namespace SalesApp.Transaction.Sales
             catch { }
         }
 
-       
-
-        
-
-        private void dgProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.ColumnIndex == dgProduct.Columns["deleteproduct"].Index)
-            {
-                dtb = new Database();
-                if(dgProduct.CurrentRow.Cells["deletequantity"].Value == null)
-                {
-                    string query = @"delete sodt from sodt where id = (select max(cast(id as int)) from sodt where soid =@soid) and soid = @soid";
-                    bool result = dtb.SetValue(query, CommandType.Text, ref err, new SqlParameter("@soid", txtSOID.Text));
-                    if (result)
-                    {
-                        MessageBox.Show("Delete product successfully!");
-                        txtAmount.Text = LoadSOHD_Amount(txtSOID.Text);
-                        Display_SODT_Detail(txtSOID.Text);
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        int quantity = Convert.ToInt32(dgProduct.CurrentRow.Cells["deletequantity"].Value);
-                        int real_quantity = Convert.ToInt32(dgProduct.CurrentRow.Cells["quantity"].Value);
-                        if (quantity > real_quantity)
-                        {
-                            MessageBox.Show("Please enter quantity again!");
-                        }
-                        else
-                        {
-                            bool result= false;
-                            for (int i = 0; i < quantity; i++) {
-                                string query = @"delete sodt from sodt where id = (select max(cast(id as int)) from sodt where soid =@soid) and soid = @soid";
-                                result = dtb.SetValue(query, CommandType.Text, ref err, new SqlParameter("@soid", txtSOID.Text));
-                            }
-                            if (result)
-                            {
-                                MessageBox.Show("Delete product successfully!");
-                                txtAmount.Text = LoadSOHD_Amount(txtSOID.Text);
-                                Display_SODT_Detail(txtSOID.Text);
-                            }
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Please enter a number to delete and it must less than quantity!");
-                    }
-                }
-            }
-        }
-
-        private void dgProductMask_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        //Cập nhật giá trị các textbox liên quan
         private void txtAmount_TextChanged(object sender, EventArgs e)
         {
             try
@@ -682,17 +680,20 @@ namespace SalesApp.Transaction.Sales
                     double amount = Convert.ToDouble(txtAmount.Text);
                     double percent = Convert.ToDouble(txtPercent.Text);
                     double net_a = amount - amount * (percent / 100);
-                    txtNetA.Text = net_a.ToString().PadLeft(10,'0');
-                }
-                else
-                {
-                    
+                    lblDiscountAmount.Text = (amount * (percent / 100)).ToString();
+                    txtNetA.Text = net_a.ToString().PadLeft(10, '0');
                 }
             }
 
             catch { }
         }
 
+
         
+
+
+        
+
+
     }
 }

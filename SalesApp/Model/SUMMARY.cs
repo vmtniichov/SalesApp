@@ -11,6 +11,8 @@ namespace SalesApp.Model
         public string productid { get; set; }
         public string productname{ get; set; }
         public int quantity { get; set; }
-        public double total { get; set; }
+        public double discount { get; set; }
+        public double amount { get; set; }
+        public double total_amount { get; set; }
     }
 }

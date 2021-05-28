@@ -38,6 +38,7 @@
             // 
             // btnSee
             // 
+            this.btnSee.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSee.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSee.Location = new System.Drawing.Point(431, 9);
             this.btnSee.Name = "btnSee";
@@ -61,6 +62,7 @@
             // 
             this.cRv.ActiveViewIndex = -1;
             this.cRv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cRv.Cursor = System.Windows.Forms.Cursors.Default;
             this.cRv.Location = new System.Drawing.Point(1, 39);
             this.cRv.Name = "cRv";
             this.cRv.Size = new System.Drawing.Size(1152, 587);
@@ -113,6 +115,7 @@
             this.Controls.Add(this.btnSee);
             this.Controls.Add(this.startDate);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSaleReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SalesDetailForm";

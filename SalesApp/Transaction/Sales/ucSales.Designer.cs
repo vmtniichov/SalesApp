@@ -29,20 +29,20 @@ namespace SalesApp.Transaction.Sales
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupOrder = new System.Windows.Forms.GroupBox();
@@ -59,15 +59,6 @@ namespace SalesApp.Transaction.Sales
             this.btnBack = new System.Windows.Forms.Button();
             this.txtDateTime = new System.Windows.Forms.DateTimePicker();
             this.dgProduct = new System.Windows.Forms.DataGridView();
-            this.deleteproduct = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.deletequantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnBillDel = new System.Windows.Forms.Button();
             this.txtTableID = new System.Windows.Forms.TextBox();
             this.txtAmount = new System.Windows.Forms.TextBox();
@@ -93,6 +84,14 @@ namespace SalesApp.Transaction.Sales
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.deleteproduct = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.deletequantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProductMask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
@@ -135,7 +134,6 @@ namespace SalesApp.Transaction.Sales
             this.groupOrder.Controls.Add(this.btnBack);
             this.groupOrder.Controls.Add(this.txtDateTime);
             this.groupOrder.Controls.Add(this.dgProduct);
-            this.groupOrder.Controls.Add(this.panel2);
             this.groupOrder.Controls.Add(this.btnBillDel);
             this.groupOrder.Controls.Add(this.txtTableID);
             this.groupOrder.Controls.Add(this.txtAmount);
@@ -179,12 +177,12 @@ namespace SalesApp.Transaction.Sales
             this.dgProductMask.Location = new System.Drawing.Point(14, 313);
             this.dgProductMask.Margin = new System.Windows.Forms.Padding(2);
             this.dgProductMask.Name = "dgProductMask";
+            this.dgProductMask.RowHeadersVisible = false;
             this.dgProductMask.RowHeadersWidth = 51;
             this.dgProductMask.RowTemplate.Height = 24;
             this.dgProductMask.Size = new System.Drawing.Size(693, 301);
             this.dgProductMask.TabIndex = 36;
             this.dgProductMask.Visible = false;
-            this.dgProductMask.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProductMask_CellContentClick);
             // 
             // deleteprod
             // 
@@ -204,8 +202,8 @@ namespace SalesApp.Transaction.Sales
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "productname";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle71.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle71;
             this.dataGridViewTextBoxColumn1.FillWeight = 104.7716F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Product Name";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -213,8 +211,8 @@ namespace SalesApp.Transaction.Sales
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "price";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle72.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle72;
             this.dataGridViewTextBoxColumn2.FillWeight = 104.7716F;
             this.dataGridViewTextBoxColumn2.HeaderText = "Price";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -222,8 +220,8 @@ namespace SalesApp.Transaction.Sales
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "quantity";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle73.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle73;
             this.dataGridViewTextBoxColumn3.FillWeight = 104.7716F;
             this.dataGridViewTextBoxColumn3.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -231,8 +229,8 @@ namespace SalesApp.Transaction.Sales
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "total";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle74.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle74;
             this.dataGridViewTextBoxColumn4.FillWeight = 104.7716F;
             this.dataGridViewTextBoxColumn4.HeaderText = "Amount";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -240,8 +238,8 @@ namespace SalesApp.Transaction.Sales
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "soid";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle75.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle75;
             this.dataGridViewTextBoxColumn5.HeaderText = "SO HD";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Visible = false;
@@ -249,8 +247,8 @@ namespace SalesApp.Transaction.Sales
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "productid";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle76.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle76;
             this.dataGridViewTextBoxColumn6.HeaderText = "Product ID";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.Visible = false;
@@ -259,13 +257,14 @@ namespace SalesApp.Transaction.Sales
             // 
             this.txtSOID.BackColor = System.Drawing.Color.SandyBrown;
             this.txtSOID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSOID.ForeColor = System.Drawing.Color.SandyBrown;
-            this.txtSOID.Location = new System.Drawing.Point(575, 77);
+            this.txtSOID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSOID.ForeColor = System.Drawing.Color.SeaShell;
+            this.txtSOID.Location = new System.Drawing.Point(346, 80);
             this.txtSOID.Name = "txtSOID";
             this.txtSOID.ReadOnly = true;
-            this.txtSOID.Size = new System.Drawing.Size(100, 19);
+            this.txtSOID.Size = new System.Drawing.Size(190, 22);
             this.txtSOID.TabIndex = 35;
-            this.txtSOID.Visible = false;
+            this.txtSOID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnBack
             // 
@@ -286,7 +285,7 @@ namespace SalesApp.Transaction.Sales
             // 
             this.txtDateTime.CustomFormat = "dd/MM/yyy";
             this.txtDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtDateTime.Location = new System.Drawing.Point(339, 119);
+            this.txtDateTime.Location = new System.Drawing.Point(346, 125);
             this.txtDateTime.Name = "txtDateTime";
             this.txtDateTime.Size = new System.Drawing.Size(190, 26);
             this.txtDateTime.TabIndex = 33;
@@ -294,6 +293,7 @@ namespace SalesApp.Transaction.Sales
             // dgProduct
             // 
             this.dgProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgProduct.BackgroundColor = System.Drawing.Color.White;
             this.dgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -308,94 +308,12 @@ namespace SalesApp.Transaction.Sales
             this.dgProduct.Location = new System.Drawing.Point(14, 313);
             this.dgProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgProduct.Name = "dgProduct";
+            this.dgProduct.RowHeadersVisible = false;
             this.dgProduct.RowHeadersWidth = 51;
             this.dgProduct.RowTemplate.Height = 24;
             this.dgProduct.Size = new System.Drawing.Size(693, 301);
             this.dgProduct.TabIndex = 1;
             this.dgProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProduct_CellContentClick);
-            // 
-            // deleteproduct
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.deleteproduct.DefaultCellStyle = dataGridViewCellStyle7;
-            this.deleteproduct.FillWeight = 104.7716F;
-            this.deleteproduct.HeaderText = "";
-            this.deleteproduct.Name = "deleteproduct";
-            this.deleteproduct.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deleteproduct.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.deleteproduct.Text = "Delete";
-            this.deleteproduct.UseColumnTextForButtonValue = true;
-            // 
-            // deletequantity
-            // 
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.deletequantity.DefaultCellStyle = dataGridViewCellStyle8;
-            this.deletequantity.FillWeight = 76.14214F;
-            this.deletequantity.HeaderText = "Delete Quantity";
-            this.deletequantity.Name = "deletequantity";
-            // 
-            // productname
-            // 
-            this.productname.DataPropertyName = "productname";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.productname.DefaultCellStyle = dataGridViewCellStyle9;
-            this.productname.FillWeight = 104.7716F;
-            this.productname.HeaderText = "Product Name";
-            this.productname.Name = "productname";
-            // 
-            // price
-            // 
-            this.price.DataPropertyName = "price";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.price.DefaultCellStyle = dataGridViewCellStyle10;
-            this.price.FillWeight = 104.7716F;
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            // 
-            // quantity
-            // 
-            this.quantity.DataPropertyName = "quantity";
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle11;
-            this.quantity.FillWeight = 104.7716F;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
-            // 
-            // amount
-            // 
-            this.amount.DataPropertyName = "total";
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.amount.DefaultCellStyle = dataGridViewCellStyle12;
-            this.amount.FillWeight = 104.7716F;
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
-            // 
-            // soid
-            // 
-            this.soid.DataPropertyName = "soid";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.soid.DefaultCellStyle = dataGridViewCellStyle13;
-            this.soid.HeaderText = "SO HD";
-            this.soid.Name = "soid";
-            this.soid.Visible = false;
-            // 
-            // productid
-            // 
-            this.productid.DataPropertyName = "productid";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.productid.DefaultCellStyle = dataGridViewCellStyle14;
-            this.productid.HeaderText = "Product ID";
-            this.productid.Name = "productid";
-            this.productid.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Lime;
-            this.panel2.Location = new System.Drawing.Point(29, 74);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(164, 198);
-            this.panel2.TabIndex = 32;
             // 
             // btnBillDel
             // 
@@ -415,19 +333,20 @@ namespace SalesApp.Transaction.Sales
             // txtTableID
             // 
             this.txtTableID.BackColor = System.Drawing.Color.SandyBrown;
+            this.txtTableID.Font = new System.Drawing.Font("Microsoft Sans Serif", 120F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTableID.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtTableID.Location = new System.Drawing.Point(339, 74);
+            this.txtTableID.Location = new System.Drawing.Point(14, 83);
             this.txtTableID.Name = "txtTableID";
-            this.txtTableID.Size = new System.Drawing.Size(190, 26);
+            this.txtTableID.Size = new System.Drawing.Size(179, 189);
             this.txtTableID.TabIndex = 30;
-            this.txtTableID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTableID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtAmount
             // 
             this.txtAmount.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.txtAmount.BackColor = System.Drawing.Color.SandyBrown;
             this.txtAmount.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtAmount.Location = new System.Drawing.Point(339, 163);
+            this.txtAmount.Location = new System.Drawing.Point(346, 169);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
             this.txtAmount.Size = new System.Drawing.Size(190, 26);
@@ -439,7 +358,7 @@ namespace SalesApp.Transaction.Sales
             // 
             this.txtNetA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNetA.ForeColor = System.Drawing.Color.DarkRed;
-            this.txtNetA.Location = new System.Drawing.Point(339, 243);
+            this.txtNetA.Location = new System.Drawing.Point(346, 249);
             this.txtNetA.Name = "txtNetA";
             this.txtNetA.ReadOnly = true;
             this.txtNetA.Size = new System.Drawing.Size(147, 29);
@@ -448,7 +367,7 @@ namespace SalesApp.Transaction.Sales
             // 
             // txtPercent
             // 
-            this.txtPercent.Location = new System.Drawing.Point(339, 202);
+            this.txtPercent.Location = new System.Drawing.Point(346, 208);
             this.txtPercent.Name = "txtPercent";
             this.txtPercent.Size = new System.Drawing.Size(100, 26);
             this.txtPercent.TabIndex = 27;
@@ -460,7 +379,7 @@ namespace SalesApp.Transaction.Sales
             // 
             this.lblDiscountAmount.AutoSize = true;
             this.lblDiscountAmount.ForeColor = System.Drawing.Color.Blue;
-            this.lblDiscountAmount.Location = new System.Drawing.Point(601, 205);
+            this.lblDiscountAmount.Location = new System.Drawing.Point(608, 211);
             this.lblDiscountAmount.Name = "lblDiscountAmount";
             this.lblDiscountAmount.Size = new System.Drawing.Size(19, 20);
             this.lblDiscountAmount.TabIndex = 26;
@@ -471,7 +390,7 @@ namespace SalesApp.Transaction.Sales
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Blue;
-            this.label8.Location = new System.Drawing.Point(445, 205);
+            this.label8.Location = new System.Drawing.Point(452, 211);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(150, 20);
             this.label8.TabIndex = 25;
@@ -482,7 +401,7 @@ namespace SalesApp.Transaction.Sales
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(203, 246);
+            this.label7.Location = new System.Drawing.Point(210, 252);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 20);
             this.label7.TabIndex = 23;
@@ -493,7 +412,7 @@ namespace SalesApp.Transaction.Sales
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(203, 205);
+            this.label6.Location = new System.Drawing.Point(210, 211);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 20);
             this.label6.TabIndex = 22;
@@ -504,7 +423,7 @@ namespace SalesApp.Transaction.Sales
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(199, 124);
+            this.label5.Location = new System.Drawing.Point(206, 130);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 20);
             this.label5.TabIndex = 21;
@@ -515,7 +434,7 @@ namespace SalesApp.Transaction.Sales
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(199, 166);
+            this.label4.Location = new System.Drawing.Point(206, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 20);
             this.label4.TabIndex = 20;
@@ -526,7 +445,7 @@ namespace SalesApp.Transaction.Sales
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(199, 77);
+            this.label3.Location = new System.Drawing.Point(206, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 20);
             this.label3.TabIndex = 19;
@@ -693,6 +612,85 @@ namespace SalesApp.Transaction.Sales
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // deleteproduct
+            // 
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle77.ForeColor = System.Drawing.Color.Black;
+            this.deleteproduct.DefaultCellStyle = dataGridViewCellStyle77;
+            this.deleteproduct.FillWeight = 104.7716F;
+            this.deleteproduct.HeaderText = "";
+            this.deleteproduct.Name = "deleteproduct";
+            this.deleteproduct.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deleteproduct.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.deleteproduct.Text = "Delete";
+            this.deleteproduct.UseColumnTextForButtonValue = true;
+            // 
+            // deletequantity
+            // 
+            dataGridViewCellStyle78.ForeColor = System.Drawing.Color.Black;
+            this.deletequantity.DefaultCellStyle = dataGridViewCellStyle78;
+            this.deletequantity.FillWeight = 76.14214F;
+            this.deletequantity.HeaderText = "Delete Quantity";
+            this.deletequantity.Name = "deletequantity";
+            // 
+            // productname
+            // 
+            this.productname.DataPropertyName = "productname";
+            dataGridViewCellStyle79.ForeColor = System.Drawing.Color.Black;
+            this.productname.DefaultCellStyle = dataGridViewCellStyle79;
+            this.productname.FillWeight = 104.7716F;
+            this.productname.HeaderText = "Product Name";
+            this.productname.Name = "productname";
+            // 
+            // price
+            // 
+            this.price.DataPropertyName = "price";
+            dataGridViewCellStyle80.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle80.Format = "N0";
+            dataGridViewCellStyle80.NullValue = null;
+            this.price.DefaultCellStyle = dataGridViewCellStyle80;
+            this.price.FillWeight = 104.7716F;
+            this.price.HeaderText = "Price";
+            this.price.Name = "price";
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            dataGridViewCellStyle81.ForeColor = System.Drawing.Color.Black;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle81;
+            this.quantity.FillWeight = 104.7716F;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            // 
+            // amount
+            // 
+            this.amount.DataPropertyName = "total";
+            dataGridViewCellStyle82.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle82.Format = "N0";
+            dataGridViewCellStyle82.NullValue = null;
+            this.amount.DefaultCellStyle = dataGridViewCellStyle82;
+            this.amount.FillWeight = 104.7716F;
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            // 
+            // soid
+            // 
+            this.soid.DataPropertyName = "soid";
+            dataGridViewCellStyle83.ForeColor = System.Drawing.Color.Black;
+            this.soid.DefaultCellStyle = dataGridViewCellStyle83;
+            this.soid.HeaderText = "SO HD";
+            this.soid.Name = "soid";
+            this.soid.Visible = false;
+            // 
+            // productid
+            // 
+            this.productid.DataPropertyName = "productid";
+            dataGridViewCellStyle84.ForeColor = System.Drawing.Color.Black;
+            this.productid.DefaultCellStyle = dataGridViewCellStyle84;
+            this.productid.HeaderText = "Product ID";
+            this.productid.Name = "productid";
+            this.productid.Visible = false;
+            // 
             // ucSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -745,7 +743,6 @@ namespace SalesApp.Transaction.Sales
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.TextBox txtNetA;
         private System.Windows.Forms.TextBox txtPercent;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnBillDel;
         private System.Windows.Forms.Panel PanelItemList;
         private System.Windows.Forms.DateTimePicker txtDateTime;

@@ -27,15 +27,27 @@ namespace SalesApp.Transaction.Sales
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult message = MessageBox.Show("Are you sure to delete this table?", "Confirm Delete Message", MessageBoxButtons.YesNo);
+
             if (message == DialogResult.Yes) {
+
                 Database dtb = new Database();
                 string err = string.Empty;
-                string query = "update mttable set active = 0 where id = @id";
-                bool result = dtb.SetValue(query, CommandType.Text, ref err, new SqlParameter("@id", txtTableID.Text));
-                if (result)
+                string check_table_state = @"select isused from mttable where  id = @id";
+                object state = dtb.GetValue(check_table_state, CommandType.Text, ref err, new SqlParameter("@id", txtTableID.Text));
+                if(state.ToString() == "1")
                 {
-                    MessageBox.Show("Deleted table!");
+                    MessageBox.Show("Can Delete Table In Used!");
                 }
+                else
+                {
+                    string query = "update mttable set active = 0 where id = @id";
+                    bool result = dtb.SetValue(query, CommandType.Text, ref err, new SqlParameter("@id", txtTableID.Text));
+                    if (result)
+                    {
+                        MessageBox.Show("Deleted table!");
+                    }
+                }
+                
             }
 
         }

@@ -12,6 +12,7 @@ namespace SalesApp.Model
         public string tableid { get; set; }
         public string discountpercent { get; set; }
         public double discountamount { get; set; }
+        public double total_amount { get; set; }
         public double amount { get; set; }
         public DateTime sodate { get; set; }
         public string deliveryname { get; set; }

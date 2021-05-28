@@ -1,15 +1,8 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DataLayer;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace SalesApp
 {
@@ -42,7 +35,7 @@ namespace SalesApp
 
         private void SalesDetailForm_Load(object sender, EventArgs e)
         {
-            
+
         }
         private DataTable loadHD()
         {
@@ -51,9 +44,10 @@ namespace SalesApp
             if (check)
             {
                 dtb = new DataLayer.Database();
-                string query = @"select soid, tableid, discountpercent, discountamount, amount, sodate, deli.deliveryname, ct.custname, em.empname
+                string query = @"select soid, tableid, discountpercent, discountamount, amount, sodate, deli.deliveryname, ct.custname, em.empname, SUM(hd.amount)-sum(hd.discountamount) as total_amount
                             from sohd hd left join mtcustomer ct on hd.custid = ct.custid left join MTEmployee em on em.empid = hd.empid left join MTDelivery deli on deli.deliveryid = hd.deliveryid
-                            where sodate = @enddate and hd.isdelete = 0";
+                            where sodate = @enddate and hd.isdelete = 0 and hd.printbill = 1
+							group by soid, tableid, discountpercent, discountamount, amount, sodate, deli.deliveryname, ct.custname, em.empname";
                 SqlDataReader reader = dtb.MyExecuteReader(query, CommandType.Text, ref err, new SqlParameter("@enddate", endDate.Value.ToShortDateString()));
                 dataTable = new DataTable();
                 dataTable.Load(reader);
@@ -61,11 +55,11 @@ namespace SalesApp
             else
             {
                 dtb = new DataLayer.Database();
-                string query = @"select dt.productid, pro.productname, count(dt.productid) as quantity,sum(price) as total
+                string query = @"select dt.productid, pro.productname, count(dt.productid) as quantity,sum(price) as amount, sum(hd.discountamount)as discount,  SUM(price)-sum(hd.discountamount) as total_amount
                                 from sodt dt join MTProduct pro on pro.productid = dt.productid join sohd hd on hd.soid = dt.soid
                                 where dt.productid in(select distinct dt.productid from sodt) and hd.sodate between @startdate and @enddate
                                 group by pro.productname,dt.productid";
-                SqlDataReader reader = dtb.MyExecuteReader(query, CommandType.Text, ref err, new SqlParameter("@startdate", startDate.Value.ToShortDateString()),new SqlParameter("@enddate",endDate.Value));
+                SqlDataReader reader = dtb.MyExecuteReader(query, CommandType.Text, ref err, new SqlParameter("@startdate", startDate.Value.ToShortDateString()), new SqlParameter("@enddate", endDate.Value));
                 dataTable = new DataTable();
                 dataTable.Load(reader);
             }
@@ -82,7 +76,7 @@ namespace SalesApp
         {
             DataTable hd_report = loadHD();
             ReportDocument rptDoc = new ReportDocument();
-            string reportPath =  check == true ? Application.StartupPath + @"\Report\SalesDetail\SaleDetail.rpt" : Application.StartupPath + @"\Report\SalesSummary\SalesSummary.rpt";
+            string reportPath = check == true ? Application.StartupPath + @"\Report\SalesDetail\SaleDetail.rpt" : Application.StartupPath + @"\Report\SalesSummary\SalesSummary.rpt";
             rptDoc.Load(reportPath);
             rptDoc.SetDataSource(hd_report);
             cRv.ReportSource = rptDoc;
